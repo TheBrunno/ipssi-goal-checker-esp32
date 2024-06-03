@@ -23,3 +23,5 @@
 ## Conexão ESP32-CAM
 ![image](https://github.com/TheBrunno/ipssi-goal-checker-esp32/assets/68453992/3ad9d212-56b6-44d0-ac8c-cb1f8503c0a4)
 (O jumper verde serve apenas para o bootloader do esp32-cam ser ativado, após o upload do código, você deve retirá-lo e pressionar o botão `RST`. Outra observação é que você deve selecionar o pino `5v` no `FTDI232`).
+
+Para programar para o ESP32 e ESP32-CAM na Arduino IDE, adicione a seguinte URL `https://dl.espressif.com/dl/package_esp32_index.json` em `Additional Boards Manager URLs` em `File > Preferences` e depois vá em `Tools > Board ... > Boards Manager`, pesquise por `esp32` e instale a extensão.
