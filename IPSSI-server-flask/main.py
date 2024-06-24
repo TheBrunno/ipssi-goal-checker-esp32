@@ -1,7 +1,7 @@
 from flask import Flask, render_template, request, jsonify
 from flask_socketio import SocketIO
 
-app = Flask(__name__)
+app = Flask(__name__, static_url_path="/static")
 socketio = SocketIO(app)
 
 @app.route('/')
