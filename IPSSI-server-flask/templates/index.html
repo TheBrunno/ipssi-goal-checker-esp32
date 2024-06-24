@@ -3,26 +3,81 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Monitoramento de Distância</title>
+    <title>Fut dos cria</title>
     <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+
         body {
-            font-family: Arial, sans-serif;
-            text-align: center;
+            font-family: 'Josefin Sans', Arial, sans-serif;
             margin-top: 50px;
+            background-color: #efefef;
+        }
+
+        .title{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 50px;
+        }
+        .title > h1{
+            font-size: 90px;
+        }
+
+        .goal{
+            position: absolute;
+            top: 30vh;
+
+            background-color: #238742;
+            width: 100vw;
+            height: 400px;
+            justify-content: center;
+            align-items: center;
+            display: flex;
+
+            transition: .5s;
+            opacity: 0;
+        }
+
+        .goal > h1{
+            font-size: 200px;
+            color: #efefef;
         }
     </style>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <h1>fut dos cria</h1>
-    <p><span id="gol"></span></p>
+    <div class="title">
+        <img src="imgs/icon.png">
+        <h1>Fut dos cria</h1>
+    </div>
+
+    <div class="goal">
+        <h1>GOOOOLL!!!</h1>
+    </div>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.4.1/socket.io.js"></script>
     <script>
+
+        function goal(){
+            const goalLocal = document.querySelector('.goal');
+
+            goalLocal.style.opacity = '1';
+            setTimeout(() => {
+                goalLocal.style.opacity = '0';
+            }, 3000);
+        }
+
         document.addEventListener('DOMContentLoaded', (event) => {
             var socket = io.connect('http://' + document.domain + ':' + location.port);
 
             socket.on('update_distance', function(data) {
-                document.getElementById('gol').innerHTML += "gol<br>";
+                goal();
             });
         });
     </script>
